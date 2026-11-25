@@ -1,7 +1,8 @@
 import Hero from "@/components/home/Hero";
 import Intro from "@/components/home/Intro";
+import Signature from "@/components/home/Signature";
+import Tiles from "@/components/home/Tiles";
 import Hall from "@/components/home/Hall";
-import Favourites from "@/components/home/Favourites";
 import Contact from "@/components/home/Contact";
 
 export default function HomePage() {
@@ -9,7 +10,8 @@ export default function HomePage() {
     <>
       <Hero />
       <Intro />
-      <Favourites />
+      <Signature />
+      <Tiles />
       <Hall />
       <Contact />
     </>

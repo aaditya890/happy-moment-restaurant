@@ -4,11 +4,12 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { site } from "@/config/site";
+import { photos } from "@/data/photos";
 
 const floaters = [
-  { src: "pizza", cls: "right-[4%] top-[18%] w-44 md:w-64" },
-  { src: "noodles", cls: "right-[30%] -bottom-10 w-36 md:w-52" },
-  { src: "mojito", cls: "right-[22%] top-[8%] w-20 md:w-28" },
+  { src: photos.pizza, cls: "right-[3%] top-[22%] w-52 lg:w-72" },
+  { src: photos.paneerMasala2, cls: "right-[26%] top-[46%] w-36 lg:w-48" },
+  { src: photos.mojito, cls: "right-[20%] top-[12%] w-24 lg:w-32" },
 ];
 
 export default function MenuHeader() {
@@ -30,10 +31,10 @@ export default function MenuHeader() {
 
   return (
     <section ref={root} className="relative overflow-hidden px-5 pt-36 pb-16 sm:px-8 md:pt-44 md:pb-24">
-      <div aria-hidden className="pointer-events-none absolute inset-0 hidden opacity-90 sm:block">
+      <div aria-hidden className="pointer-events-none absolute inset-0 hidden md:block">
         {floaters.map((f) => (
-          <div key={f.src} className={`mh-float absolute aspect-square ${f.cls}`}>
-            <Image src={`/images/${f.src}.webp`} alt="" fill sizes="260px" className="dish-img object-contain" priority />
+          <div key={f.src} className={`mh-float absolute aspect-square overflow-hidden rounded-full ring-1 ring-gold/30 ${f.cls}`}>
+            <Image src={f.src} alt="" fill sizes="300px" className="object-cover" priority />
           </div>
         ))}
       </div>

@@ -4,6 +4,8 @@
  * type: "veg" | "nonveg" | "both" (both = category has veg and non-veg columns)
  * nv: true marks a non-veg dish inside a mixed category.
  */
+import { photos } from "./photos";
+
 export type MenuItem = { n: string; p: (number | string | null)[]; nv?: boolean };
 export type MenuCategory = {
   id: string;
@@ -20,7 +22,7 @@ const nv = (n: string, ...p: (number | string | null)[]): MenuItem => ({ n, p, n
 
 export const menu: MenuCategory[] = [
   {
-    id: "soup", title: "Soups", type: "both", cols: ["Veg", "Non-veg"], image: "soup",
+    id: "soup", title: "Soups", type: "both", cols: ["Veg", "Non-veg"],
     items: [
       i("Manchow Soup", 110, 150), i("Hot & Sour Soup", 110, 150), i("Lemon Coriander Soup", 110, 150),
       i("Cream of Mushroom Soup", 120, null), i("Tomato Soup", 120, null), i("Sweet Corn Soup", 100, 140),
@@ -36,18 +38,18 @@ export const menu: MenuCategory[] = [
     ],
   },
   {
-    id: "pizza", title: "Pizza", type: "veg", cols: ["Price"], image: "pizza",
+    id: "pizza", title: "Pizza", type: "veg", cols: ["Price"],
     items: [
       i("Margherita Pizza", 190), i("Veg Cheese Pizza", 210), i("Corn Cheese Pizza", 200),
       i("Farm House Pizza", 270), i("Paneer Paradise Pizza", 250), nv("Chicken Pizza", 250), i("Extra Cheese", 70),
     ],
   },
   {
-    id: "burger", title: "Burgers", type: "veg", cols: ["Price"], image: "burger",
+    id: "burger", title: "Burgers", type: "veg", cols: ["Price"],
     items: [i("Veg Burger", 90), i("Veg Cheese Burger", 100), i("Kurkure Burger", 120), nv("Chicken Burger", 150)],
   },
   {
-    id: "sandwich", title: "Sandwiches", type: "veg", cols: ["Price"], image: "sandwich",
+    id: "sandwich", title: "Sandwiches", type: "veg", cols: ["Price"],
     items: [
       i("Veg Sandwich", 90), i("Veg Cheese Grilled Sandwich", 100), i("Cheese Corn Sandwich", 100),
       i("Bombay Sandwich", 130), i("Paneer Tikka Sandwich", 160), i("Chocolate Sandwich", 120),
@@ -58,7 +60,7 @@ export const menu: MenuCategory[] = [
     items: [i("Veg Maggi", 80), i("Plain Maggi", 60), i("Veg Cheese Maggi", 90), i("Corn Cheese Maggi", 90)],
   },
   {
-    id: "chinese-veg", title: "Chinese veg", type: "veg", cols: ["Price"], image: "chilli-paneer",
+    id: "chinese-veg", title: "Chinese veg", type: "veg", cols: ["Price"],
     items: [
       i("Veg Manchurian", 160), i("Veg Manchurian Gravy", 190), i("Veg Crispy", 180), i("Veg Lollipop", 200),
       i("Veg Bullet", 180), i("Veg Spring Roll", 150), i("Corn Chilli", 200), i("Crispy Corn", 180),
@@ -69,7 +71,7 @@ export const menu: MenuCategory[] = [
     ],
   },
   {
-    id: "chinese-nonveg", title: "Chinese non-veg", type: "nonveg", cols: ["Half", "Full"], image: "chicken-65",
+    id: "chinese-nonveg", title: "Chinese non-veg", type: "nonveg", cols: ["Half", "Full"],
     items: [
       i("Chicken Chilli", 180, 340), i("Chicken Chilli Gravy", 220, 370), i("Chicken 65", 180, 340),
       i("Schezwan Chicken", 180, 340), i("Garlic Chicken", 200, 360), i("Crispy Chicken", null, 360),
@@ -77,14 +79,14 @@ export const menu: MenuCategory[] = [
     ],
   },
   {
-    id: "noodles", title: "Noodles", type: "both", cols: ["Veg", "Egg", "Chicken"], image: "noodles",
+    id: "noodles", title: "Noodles", type: "both", cols: ["Veg", "Egg", "Chicken"],
     items: [
       i("Chowmein", 100, 140, 200), i("Hakka Noodles", 120, 160, 220),
       i("Schezwan Noodles", 140, 180, 240), i("Chilli Garlic Noodles", 150, 180, 240),
     ],
   },
   {
-    id: "chinese-rice", title: "Chinese rice", type: "both", cols: ["Veg", "Egg", "Chicken"], image: "fried-rice",
+    id: "chinese-rice", title: "Chinese rice", type: "both", cols: ["Veg", "Egg", "Chicken"],
     items: [
       i("Fried Rice", 140, 180, 240), i("Schezwan Rice", 160, 190, 250), i("Manchurian Rice", 180, 250, 280),
       i("Triple Fried Rice", 200, 250, 300), i("Mushroom Fried Rice", 200, null, null),
@@ -92,7 +94,7 @@ export const menu: MenuCategory[] = [
     ],
   },
   {
-    id: "combo", title: "Chinese veg combos", type: "veg", cols: ["Price"], image: "manchurian",
+    id: "combo", title: "Chinese veg combos", type: "veg", cols: ["Price"],
     items: [
       i("Veg Manchurian + Chowmein", 200), i("Veg Manchurian + Fried Rice", 200),
       i("Paneer Chilli + Chowmein", 250), i("Paneer Chilli + Fried Rice", 250),
@@ -108,7 +110,7 @@ export const menu: MenuCategory[] = [
     ],
   },
   {
-    id: "paneer", title: "Paneer main course", type: "veg", cols: ["Price"], image: "paneer-masala",
+    id: "paneer", title: "Paneer main course", type: "veg", cols: ["Price"],
     items: [
       i("Matar Paneer", 240), i("Paneer Masala", 240), i("Paneer Lazeez", 280), i("Paneer Butter Masala", 260),
       i("Paneer Tikka Masala", 350), i("Paneer Lababdar", 260), i("Kadhai Paneer", 280), i("Paneer Amritsari", 280),
@@ -162,7 +164,7 @@ export const menu: MenuCategory[] = [
     items: [i("Dal Fry", 120), i("Dal Butter Fry", 140), i("Dal Tadka", 140), i("Dal Makhni", 200), i("Dal Punjabi Dhaba", 180)],
   },
   {
-    id: "biryani", title: "Biryani & pulao", type: "both", cols: ["Half", "Full"], image: "biryani",
+    id: "biryani", title: "Biryani & pulao", type: "both", cols: ["Half", "Full"],
     note: "Gravy & raita served once",
     items: [
       i("Veg Biryani", 130, 230), i("Veg Hyderabadi Biryani", 140, 240), i("Veg Pulao", 110, 200),
@@ -172,7 +174,7 @@ export const menu: MenuCategory[] = [
     ],
   },
   {
-    id: "breads", title: "Breads", type: "veg", cols: ["Price"], image: "naan",
+    id: "breads", title: "Breads", type: "veg", cols: ["Price"],
     items: [
       i("Tawa Roti", 15), i("Tawa Butter Roti", 20), i("Tandoori Roti", 15), i("Tandoori Butter Roti", 20),
       i("Butter Naan", 60), i("Plain Naan", 45), i("Garlic Naan", 90), i("Masala Kulcha", 100),
@@ -188,11 +190,11 @@ export const menu: MenuCategory[] = [
     ],
   },
   {
-    id: "mocktails", title: "Mocktails", type: "veg", cols: ["Price"], image: "mojito",
+    id: "mocktails", title: "Mocktails", type: "veg", cols: ["Price"],
     items: [i("Virgin Mojito", 140), i("Mint Mojito", 140), i("Blue Lagoon", 140), i("Kala Khatta", 140)],
   },
   {
-    id: "shakes", title: "Shakes", type: "veg", cols: ["Price"], image: "shake",
+    id: "shakes", title: "Shakes", type: "veg", cols: ["Price"],
     items: [
       i("Pineapple Shake", 140), i("Strawberry Shake", 140), i("Butterscotch Shake", 130),
       i("Oreo Shake", 150), i("Chocolate Shake", 150), i("Vanilla Shake", 140),
@@ -211,15 +213,24 @@ export const menu: MenuCategory[] = [
   },
 ];
 
-/** Dishes shown in the "Favourites" strip on the home page */
-export const favourites = [
-  { name: "Paneer Butter Masala", price: 260, image: "paneer-masala", veg: true },
-  { name: "Chicken Hyderabadi Biryani", price: 300, image: "biryani", veg: false },
-  { name: "Chilli Paneer", price: 250, image: "chilli-paneer", veg: true },
-  { name: "Hakka Noodles", price: 120, image: "noodles", veg: true },
-  { name: "Chicken 65", price: 340, image: "chicken-65", veg: false },
-  { name: "Farm House Pizza", price: 270, image: "pizza", veg: true },
-  { name: "Garlic Naan", price: 90, image: "naan", veg: true },
-  { name: "Mint Mojito", price: 140, image: "mojito", veg: true },
-  { name: "Oreo Shake", price: 150, image: "shake", veg: true },
+/** "House favourites" on the home page (photo, menu section it links to, and a short note) */
+export const signature = [
+  { name: "Chicken Hyderabadi Biryani", price: 300, veg: false, photo: photos.biryaniBowl, category: "biryani", note: "Long-grain rice, slow-cooked chicken, served with gravy and raita" },
+  { name: "Paneer Butter Masala", price: 260, veg: true, photo: photos.paneerMasala, category: "paneer", note: "Soft paneer in a rich, buttery tomato gravy" },
+  { name: "Tandoori Chicken", price: 400, veg: false, photo: photos.tandooriPlatter, category: "tandoori-nonveg", note: "Spiced and charred in the tandoor" },
+  { name: "Paneer Tikka", price: 350, veg: true, photo: photos.paneerTikka, category: "tandoori-veg", note: "Smoky paneer cubes with peppers and mint chutney" },
+  { name: "Chicken Butter Masala", price: 280, veg: false, photo: photos.butterChicken, category: "chicken", note: "Creamy and mildly spiced, great with butter naan" },
+  { name: "Chicken Chilli", price: 340, veg: false, photo: photos.chilliChicken, category: "chinese-nonveg", note: "Crispy chicken tossed with peppers, onion and soy" },
+  { name: "Hakka Noodles", price: 120, veg: true, photo: photos.noodlesPlate, category: "noodles", note: "Wok-tossed with crunchy vegetables" },
+  { name: "Oreo Shake", price: 150, veg: true, photo: photos.oreoShake, category: "shakes", note: "Thick, cold and loaded with cookies" },
+];
+
+/** Big photo tiles on the home page that open a menu section */
+export const tiles = [
+  { title: "Tandoor", photo: photos.tandooriLemon, category: "tandoori-nonveg", count: ["tandoori-veg", "tandoori-nonveg"] },
+  { title: "Biryani & rice", photo: photos.biryaniSpoon, category: "biryani", count: ["biryani", "rice"] },
+  { title: "Curries", photo: photos.butterChicken2, category: "paneer", count: ["main-veg", "paneer", "chicken", "dal", "egg"] },
+  { title: "Chinese", photo: photos.noodlesDark, category: "chinese-veg", count: ["chinese-veg", "chinese-nonveg", "noodles", "chinese-rice", "combo"] },
+  { title: "Pizza & burgers", photo: photos.pizzas, category: "pizza", count: ["pizza", "burger", "sandwich", "maggi", "quick-bites"] },
+  { title: "Shakes & mocktails", photo: photos.mojito2, category: "mocktails", count: ["mocktails", "shakes", "beverages", "ice-cream"] },
 ];
