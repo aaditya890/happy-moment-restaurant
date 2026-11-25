@@ -1,0 +1,104 @@
+@import "tailwindcss";
+@import "@fontsource-variable/fraunces/full.css";
+@import "@fontsource/hind/400.css";
+@import "@fontsource/hind/500.css";
+@import "@fontsource/hind/600.css";
+@import "lenis/dist/lenis.css";
+
+@theme {
+  --color-ink: #000000;
+  --color-panel: #17130c;
+  --color-gold: #d9b45a;
+  --color-gold-soft: #f1d9a0;
+  --color-cream: #f5eedc;
+  --color-muted: #a39a86;
+  --color-leaf: #4caf50;
+  --color-chilli: #e0442e;
+  --color-flame: #f08a24;
+
+  --font-display: "Fraunces Variable", Georgia, serif;
+  --font-body: "Hind", system-ui, sans-serif;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  background: var(--color-ink);
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-cream);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-family: var(--font-display);
+  font-variation-settings: "SOFT" 100, "WONK" 0;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: #000;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold-soft);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Dish photos come from the menu card on black, so we feather their edges */
+.dish-img {
+  -webkit-mask-image: radial-gradient(closest-side, #000 78%, transparent 100%);
+  mask-image: radial-gradient(closest-side, #000 78%, transparent 100%);
+  mix-blend-mode: lighten;
+}
+
+/* Lit-sign glow used by the hero title */
+.lit {
+  color: var(--color-gold-soft);
+  text-shadow:
+    0 0 6px rgba(255, 214, 140, 0.55),
+    0 0 22px rgba(240, 160, 60, 0.35),
+    0 0 60px rgba(240, 138, 36, 0.25);
+}
+
+/* Veg / non-veg marks, same convention as the printed menu */
+.mark {
+  display: inline-grid;
+  place-items: center;
+  width: 0.9rem;
+  height: 0.9rem;
+  border: 1.5px solid currentColor;
+  border-radius: 2px;
+  flex: none;
+}
+.mark::after {
+  content: "";
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.leader {
+  flex: 1;
+  border-bottom: 1px dotted rgba(217, 180, 90, 0.35);
+  transform: translateY(-0.35em);
+  min-width: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
