@@ -9,7 +9,7 @@ import WhatsAppFloat from "@/components/WhatsAppFloat";
 export const metadata: Metadata = {
   title: `${site.name} ${site.tagline} | Sipat`,
   description: `${site.name} ${site.tagline} in Sipat: soups, Chinese, tandoor, biryani, pizza, shakes and more. Open ${site.hours.days}, ${site.hours.time}.`,
-  icons: { icon: "/images/logo.webp" },
+  icons: { icon: "/logo.png", apple: "/logo.png" },
 };
 
 export const viewport: Viewport = { themeColor: "#000000" };

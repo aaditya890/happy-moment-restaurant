@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import Logo from "./Logo";
 import { site, telLink, whatsappLink, instagramLink, mapDirections } from "@/config/site";
 import { PhoneIcon, WhatsAppIcon, InstagramIcon, MailIcon, PinIcon, ClockIcon, FacebookIcon } from "./Icons";
 
@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 sm:px-8 md:grid-cols-[1.3fr_1fr_1fr]">
         <div>
           <div className="flex items-center gap-4">
-            <Image src="/images/logo.webp" alt={`${site.name} logo`} width={72} height={72} className="rounded-full" />
+            <Logo className="size-24 flex-none" />
             <div>
               <p className="font-display text-3xl text-gold-soft">{site.name}</p>
               <p className="text-muted">{site.tagline}, Sipat</p>

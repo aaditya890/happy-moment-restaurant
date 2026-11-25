@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
+import Logo from "./Logo";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { site, telLink } from "@/config/site";
@@ -38,7 +38,7 @@ export default function Header() {
     >
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-4 px-5 sm:px-8">
         <Link href="/" className="flex items-center gap-3" aria-label={`${site.name} home`}>
-          <Image src="/images/logo.webp" alt="" width={44} height={44} className="size-10 rounded-full sm:size-11" priority />
+          <Logo className="size-11 flex-none sm:size-12" title="" />
           <span className="font-display text-lg leading-none whitespace-nowrap text-gold-soft sm:text-xl">
             {site.name}
             <span className="mt-1 hidden font-body sm:block text-[0.7rem] tracking-[0.08em] text-muted">{site.tagline}</span>
